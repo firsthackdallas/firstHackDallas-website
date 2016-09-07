@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FirstHackDallas</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav>
+      <div class="container">
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Logo</a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/events">Events</a></li>
+            <li><a href="/team">Team</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/login">Log In</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  	<div class="container">
+	    <%= yield %>
+	  </div>
+  </body>
+</html>
