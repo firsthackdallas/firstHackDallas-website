@@ -46,3 +46,24 @@ time.icon span {
   padding-top: 0.8em;
   color: #2f2f2f;
 }
+
+img.team_avatar{
+  height: 8em;
+  width: 8em;
+}
+
+.btn{
+  background-color: #64b4f5;
+}
+
+#login-form{
+  width: 300px;
+}
+
+#new_team_form{
+  display: none;
+}
+
+.btn:hover{
+  background-color: #5AA3DE;
+}
