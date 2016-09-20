@@ -2,20 +2,12 @@
 $primary-color: color("blue", "lighten-2") !default;
 @import 'materialize';
 
-#current-event {
-  margin-top: 2em;
-}
-
-#current-event div {
-
-}
-
 time.icon {
   font-size: 1em; /* change icon size */
   display: block;
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   background-color: #fff;
   border-radius: 0.6em;
   box-shadow: 0 1px 0 #bdbdbd, 0 2px 0 #fff, 0 3px 0 #bdbdbd, 0 4px 0 #fff, 0 5px 0 #bdbdbd, 0 0 0 1px #bdbdbd;
@@ -36,25 +28,46 @@ time.icon strong {
   top: 0;
   padding: 0.4em 0;
   color: #fff;
-  background-color: rgb(100,203,60);
-  border-bottom: 1px dashed rgb(51,119,124);
-  box-shadow: 0 2px 0 rgb(51,119,124);
+  background-color: #fd9f1b;
+  border-bottom: 1px dashed #f37302;
+  box-shadow: 0 2px 0 #fd9f1b;
 }
 
 time.icon em {
   position: absolute;
   bottom: 0.3em;
-  color: rgb(42,122,181);
-  margin-bottom: 10px;
+  color: #fd9f1b;
+  margin-bottom: 30px;
 }
 
 time.icon span {
-  font-size: 4em;
+  font-size: 6em;
   letter-spacing: -0.05em;
-  padding-top: 1em;
+  padding-top: 0.8em;
   color: #2f2f2f;
 }
 
+<<<<<<< HEAD
+
+/* --About Page-- */
+.upper {
+  margin: 35px auto; 
+}
+.card-panel {
+  height: 350px;
+}
+  .lft {
+    margin-right: 45px;
+  }
+  .img_boxC {
+    margin-top: 45px; 
+  }
+  .img_boxF {
+    margin-top: 55px;
+  }
+
+
+=======
 img.team_avatar{
   height: 8em;
   width: 8em;
@@ -70,33 +83,9 @@ img.team_avatar{
 
 #new_team_form{
   display: none;
-  padding-bottom: 10px;
-}
-#new_team_form form{
-  margin-bottom: 10px;
 }
 
 .btn:hover{
   background-color: #5AA3DE;
 }
-
-/* --About Page-- */
-.upper {
-  margin: 35px auto;
-}
-.card-panel {
-  height: 350px;
-}
-.lft {
-  margin-right: 45px;
-}
-.img_boxC {
-  margin-top: 45px;
-}
-.img_boxF {
-  margin-top: 55px;
-}
-
-#register_link{
-  margin-bottom: 20px;
-}
+>>>>>>> teams_page

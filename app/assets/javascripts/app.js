@@ -12,16 +12,21 @@ $(document).on("click", ".new_team_link", function(e){
 	e.preventDefault();
 })
 
-$(document).on("click", "#close_new_team_form", function(e){
-	$("#new_team_form").hide();
-	$(".new_team_link").show();
-	e.preventDefault();
-})
+// $(document).on("click", "#close_new_team_form", function(e){
+// 	$("#new_team_form").hide();
+// 	$(".new_team_link").show();
+// 	e.preventDefault();
+// })
 
 $(document).on("turbolinks:load", function(){
 	$('#login').webuiPopover({
     url:'#login-form',
-    selector: true,
-    cache: false
+    // selector: true,
+    // cache: false
   });
+  $('#close_new_team_form').click(function(){
+  	$("#new_team_form").hide();
+		$(".new_team_link").show();
+		e.preventDefault();
+  })
 })
