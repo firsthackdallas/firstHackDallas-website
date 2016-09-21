@@ -1,5 +1,9 @@
 <h2 class="center-align">Teams</h2>
-<button class="btn waves-effect waves-light new_team_link">Add a new Team</button>
+<% if current_user %>
+	<button class="btn waves-effect waves-light new_team_link">Add a new Team</button>
+<% else %>
+	<p>You must be logged in to add a team.</p>
+<% end %>
 
 <div class="row">
 	<div class="col s12 card" id="new_team_form">
@@ -27,15 +31,35 @@
 <% if @teams %>
 	<div class="row">
 		<% @teams.each do |team| %>
-		<div class="col s4">
-			<p class="center-align">
-				<img class="responsive-img circle team_avatar" src="<%= team.avatar.url %>">
-			</p>
-			<h4 class="center-align"><%= team.name %></h4>
-			<div class="chip">
-				Cody Williams
+			<div class="col s4">
+				<div class="card horizontal team_card">
+					<div class="card-image">
+						<%= image_tag team.avatar.url, class: "team_avatar" %>
+					</div>
+					<div class="card-stacked">
+						<div class="card-content">
+							<h5 class="center-align"><%= team.name %></h5>
+							<% if team.users %>
+								<% team.users.each do |user| %>
+									<div class="chip">
+										<%= image_tag user.avatar.url %>
+										<%= user.first_name%> <%= user.last_name %>
+									</div>
+								<% end %>
+							<% end %>
+						</div>
+						<div class="card-action">
+						<% if team.users.include? current_user %>
+							<a href="/teams/roster/<%=team.id%>" data-method="delete">Leave</a>
+						<% elsif ! current_user.team_id && team.users.count < 5 %>
+							<a href="/teams/roster/<%=team.id%>" data-method="post">Join</a>
+						<% elsif team.users.count > 4 %>
+							<p class="roster_full">Team roster is full!</p>
+						<% end %>
+						</div>
+					</div>
+				</div>
 			</div>
-		</div>
 		<% end %>
 	</div>
 <% end %>

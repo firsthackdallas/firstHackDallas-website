@@ -55,6 +55,8 @@ time.icon span {
   color: #2f2f2f;
 }
 
+/* --Teams Page */
+
 img.team_avatar{
   height: 8em;
   width: 8em;
@@ -80,6 +82,18 @@ img.team_avatar{
   background-color: #5AA3DE;
 }
 
+.roster_full{
+  margin: 0;
+}
+
+.team_card{
+  height: 340px;
+}
+
+.chip{
+  display: block;
+}
+
 /* --About Page-- */
 .upper {
   margin: 35px auto;
@@ -100,3 +114,14 @@ img.team_avatar{
 #register_link{
   margin-bottom: 20px;
 }
+
+/* --Register Page-- */
+
+.form_error{
+  color: red;
+}
+ /* --Home Page-- */
+
+ #meet_team_link{
+  margin-right: 1em;
+ }

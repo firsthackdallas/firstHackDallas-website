@@ -1,3 +1,93 @@
-<form class="col s12" action="/users" method="post">
-	<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
-	
+<h2>Register</h2>
+
+<div class="row">
+	<form class="col s8" action="/users" method="post">
+		<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+		<div class="input-field col s4">
+			<input type="text" id="first_name" name="user[first_name]" class="validate">
+			<label for="first_name">First Name</label>
+		</div>
+		<div class="input-field col s4">
+			<input type="text" name="user[last_name]" id="last_name" class="validate">
+			<label for="last_name">Last Name</label>
+		</div>
+		<% if flash[:registration_errors] %>
+			<%if flash[:registration_errors]["first_name"]%>
+				<div class="col s8">
+			 	<%flash[:registration_errors]["first_name"].each do |error|%>
+			 		<p class="form_error">First Name <%=error%></p>
+			 	<%end%>
+				</div>
+			<%end%>
+		<%end%>
+		<% if flash[:registration_errors] %>
+			<%if flash[:registration_errors]["last_name"]%>
+				<div class="col s8">
+			 	<%flash[:registration_errors]["last_name"].each do |error|%>
+			 		<p class="form_error">Last Name <%=error%></p>
+			 	<%end%>
+				</div>
+			<%end%>
+		<%end%>
+		<div class="input-field col s8">
+			<input type="email" name="user[email]" id="email" class="validate">
+			<label for="email">Email</label>
+		</div>
+		<% if flash[:registration_errors] %>
+			<%if flash[:registration_errors]["email"]%>
+				<div class="col s8">
+			 	<%flash[:registration_errors]["email"].each do |error|%>
+			 		<p class="form_error">Email <%=error%></p>
+			 	<%end%>
+				</div>
+			<%end%>
+		<%end%>
+		<div class="file-field input-field col s8">
+			<div class="btn">
+				<span>Avatar</span>
+				<input type="file" name="user[avatar]">
+			</div>
+			<div class="file-path-wrapper">
+				<input class="file-path validate" type="text">
+			</div>
+		</div>
+		<% if flash[:registration_errors] %>
+			<%if flash[:registration_errors]["avatar"]%>
+				<div class="col s8">
+			 	<%flash[:registration_errors]["avatar"].each do |error|%>
+			 		<p class="form_error">Avatar <%=error%></p>
+			 	<%end%>
+				</div>
+			<%end%>
+		<%end%>
+		<div class="input-field col s8">
+			<input type="password" name="user[password]" id="password" class="validate">
+			<label for="password">Password</label>
+		</div>
+		<% if flash[:registration_errors] %>
+			<%if flash[:registration_errors]["password"]%>
+				<div class="col s8">
+			 	<%flash[:registration_errors]["password"].each do |error|%>
+			 		<p class="form_error">Password <%=error%></p>
+			 	<%end%>
+				</div>
+			<%end%>
+		<%end%>
+		<div class="input-field col s8">
+			<input type="password" name="user[password_confirmation]" id="password_confirmation" class="validate">
+			<label for="password_confirmation">Confirm Password</label>
+		</div>
+		<% if flash[:registration_errors] %>
+			<%if flash[:registration_errors]["password_confirmation"]%>
+				<div class="col s8">
+			 	<%flash[:registration_errors]["password_confirmation"].each do |error|%>
+			 		<p class="form_error">Password Confirmation <%=error%></p>
+			 	<%end%>
+				</div>
+			<%end%>
+		<%end%>
+		<div class="input-field col s8">
+			<button class="waves-effect waves-light btn" type="submit">Register</button>
+		</div>
+	</form>
+</div>

@@ -17,11 +17,11 @@
       <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
       <div class="input-field col s12">
         <label for="email">Email</label>
-        <input type="email" id="email">
+        <input type="email" id="email" name="email">
       </div>
       <div class="input-field col s12">
         <label for="password">Password</label>
-        <input type="password" id="password">
+        <input type="password" id="password" name="password">
       </div>
       <button class="btn waves-effect waves-light" type="submit" name="action">Log In</button>
     </form>
@@ -35,9 +35,17 @@
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/events">Events</a></li>
-            <li><a href="/teams">Teams</a></li>
+            <% if current_user %>
+              <li><a href="/teams">Teams</a></li>
+            <% else %>
+              <li><a href="/users/new">Register</a></li>
+            <% end %>
             <li><a href="/contact">Contact</a></li>
+            <% if current_user %>
+            <li><a href="/sessions" data-method="delete">Log Out</a></li>
+            <% else %>
             <li><a href="#" id="login">Log In<i class="material-icons right">arrow_drop_down</i></a></li>
+            <% end %>
           </ul>
         </div>
       </div>

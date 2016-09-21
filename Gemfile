@@ -30,6 +30,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'materialize-sass'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'paperclip'
+gem 'hirb'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
