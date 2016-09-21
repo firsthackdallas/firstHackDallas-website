@@ -2,8 +2,6 @@ class UsersController < ApplicationController
 	def new
 	end
 	def create
-		user_params[:avatar] == "default_avatar.jpg" if user_params[:avatar] == ""
-		puts "AVATAR" + user_params[:avatar]
 		user = User.new(user_params)
 		if user.save
 			session[:user_id] = user.id

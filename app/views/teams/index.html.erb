@@ -1,6 +1,8 @@
 <h2 class="center-align">Teams</h2>
 <% if current_user %>
-	<button class="btn waves-effect waves-light new_team_link">Add a new Team</button>
+	<% if ! current_user.team_id %>
+		<button class="btn waves-effect waves-light new_team_link">Add a new Team</button>
+	<% end %>
 <% else %>
 	<p>You must be logged in to add a team.</p>
 <% end %>
