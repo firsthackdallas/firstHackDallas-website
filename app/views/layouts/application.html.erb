@@ -8,6 +8,12 @@
     <link href="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript">
+      $( document ).ready(function() {
+      $(".button-collapse").sideNav();
+    });
+
+    </script>
   </head>
   <body>
 
@@ -30,7 +36,7 @@
     <nav>
       <div class="container">
         <div class="nav-wrapper">
-          <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>firstHack Dallas</a>
+          <a href="#!" class="brand-logo"><i><%= image_tag "logo_new.gif", class: "logo_icon" %></i>firstHack Dallas</a>
           <ul class="right hide-on-med-and-down">
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
@@ -50,6 +56,53 @@
         </div>
       </div>
     </nav>
+
+
+    <!-- responsive menu+dropdown V -fs -->
+
+<!--     <div class="navbar-fixed">
+      <nav class="light-blue lighten-1" role="navigation">
+        <div class="nav-wrapper container"> <a href="#!" class="brand-logo"><i><%= image_tag "logo_new.gif", class: "logo_icon" %></i>FirstHack Dallas</a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/events">Events</a></li>
+            <% if current_user %>
+              <li><a href="/teams">Teams</a></li>
+            <% else %>
+              <li><a href="/users/new">Register</a></li>
+            <% end %>
+            <li><a href="/contact">Contact</a></li>
+            <% if current_user %>
+            <li><a href="/sessions" data-method="delete">Log Out</a></li>
+            <% else %>
+            <li><a href="#" id="login">Log In<i class="material-icons right">arrow_drop_down</i></a></li>
+            <% end %>
+          </ul>
+
+          <ul id="nav-mobile" class="side-nav" style="left: 0px;">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/events">Events</a></li>
+            <% if current_user %>
+              <li><a href="/teams">Teams</a></li>
+            <% else %>
+              <li><a href="/users/new">Register</a></li>
+            <% end %>
+            <li><a href="/contact">Contact</a></li>
+            <% if current_user %>
+            <li><a href="/sessions" data-method="delete">Log Out</a></li>
+            <% else %>
+            <li><a href="#" id="login">Log In<i class="material-icons right">arrow_drop_down</i></a></li>
+            <% end %>
+          </ul>
+          <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+      </nav>
+    </div> -->
+
+    <!-- responsive dropdown^  -fs -->
+
   	<div class="container">
 	    <%= yield %>
 	  </div>
