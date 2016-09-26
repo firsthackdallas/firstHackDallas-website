@@ -45,7 +45,7 @@
 								<% team.users.each do |user| %>
 									<div class="chip">
 										<%= image_tag user.avatar.url %>
-										<%= user.first_name%> <%= user.last_name %>
+										<span class="truncate"><%= user.first_name%> <%= user.last_name %></span>
 									</div>
 								<% end %>
 							<% end %>
