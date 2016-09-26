@@ -14,4 +14,5 @@ $(document).on("turbolinks:load", function(){
     $("#new_team_form").show();
     e.preventDefault();
   })
+  $(".button-collapse").sideNav();
 })
