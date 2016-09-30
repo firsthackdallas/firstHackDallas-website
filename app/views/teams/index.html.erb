@@ -1,11 +1,13 @@
-<h2 class="center-align">Teams</h2>
-<% if current_user %>
-	<% if ! current_user.team_id %>
-		<button class="btn waves-effect waves-light new_team_link">Add a new Team</button>
+<div class="row">	
+	<h2 class="center-align">Teams</h2>
+	<% if current_user %>
+		<% if ! current_user.team_id %>
+			<button class="btn waves-effect waves-light new_team_link">Add a new Team</button>
+		<% end %>
+	<% else %>
+		<p>You must be logged in to add a team.</p>
 	<% end %>
-<% else %>
-	<p>You must be logged in to add a team.</p>
-<% end %>
+</div>
 
 <div class="row">
 	<div class="col s12 card" id="new_team_form">
