@@ -16,14 +16,12 @@ $(document).on("turbolinks:load", function(){
   })
   $(".button-collapse").sideNav();
   $("#login_form").submit(function(){
-  $.post($(this).attr('action'), $(this).serialize(), function(json){
-    console.log(json);
-    if(json.error){
-      $('#login_error_p').html(json.error.msg)
-      //use jquery for errrs on html
-    }
-  })
+    $.post($(this).attr('action'), $(this).serialize(), function(json){
+      console.log(json);
+      if(json.error){
+        $('#login_error_p').html(json.error.msg)
+      }
+    })
   return false;
-  // e.preventDefault();
-})
+  })
 })
