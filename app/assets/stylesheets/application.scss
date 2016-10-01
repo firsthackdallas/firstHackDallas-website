@@ -9,6 +9,9 @@ $primary-color: color("blue", "lighten-2") !default;
 #current-event div {
 
 }
+.error{
+  color: red;
+}
 
 time.icon {
   font-size: 1em; /* change icon size */
@@ -66,7 +69,7 @@ img.team_avatar{
   background-color: #64b4f5;
 }
 
-#login-form{
+#login_div{
   width: 300px;
 }
 
@@ -111,7 +114,6 @@ img.team_avatar{
 .img_boxF {
   margin-top: 55px;
 }
-
 #register_link{
   margin-bottom: 20px;
 }

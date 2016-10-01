@@ -35,7 +35,7 @@
 <% if @teams %>
 	<div class="row">
 		<% @teams.each do |team| %>
-			<div class="col s4">
+			<div class="col s12 m6 l4">
 				<div class="card horizontal team_card">
 					<div class="card-image">
 						<%= image_tag team.avatar.url, class: "team_avatar" %>

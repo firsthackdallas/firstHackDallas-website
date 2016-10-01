@@ -5,8 +5,12 @@ class SessionsController < ApplicationController
 			session[:user_id] = user.id
 			redirect_to '/teams'
 		else
-			flash[:login_errors] = "Invalid Credentials."
-			redirect_back fallback_location: '/'
+			errors = {
+				error: {
+					msg: 'Invalid Credentials.'
+				}
+			}
+			render json: errors.to_json
 		end
 	end
 	def destroy

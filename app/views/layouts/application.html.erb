@@ -12,8 +12,8 @@
   <body>
 
   <!-- Dropdown Structure -->
-  <div id="login-form" class="webui-popover-content">
-    <form action="/sessions" method="post">
+  <div id="login_div" class="webui-popover-content">
+    <form id="login_form" action="/sessions" method="post">
       <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
       <div class="input-field col s12">
         <label for="email">Email</label>
@@ -23,6 +23,7 @@
         <label for="password">Password</label>
         <input type="password" id="password" name="password">
       </div>
+      <p id="login_error_p" class="error"></p>
       <button class="btn waves-effect waves-light" type="submit" name="action">Log In</button>
     </form>
   </div>

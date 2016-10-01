@@ -1,6 +1,6 @@
 $(document).on("turbolinks:load", function(){
 	$('#login').webuiPopover({
-    url:'#login-form',
+    url:'#login_div',
     closeable: true,
     dismissible: false
   });
@@ -15,4 +15,15 @@ $(document).on("turbolinks:load", function(){
     e.preventDefault();
   })
   $(".button-collapse").sideNav();
+  $("#login_form").submit(function(){
+  $.post($(this).attr('action'), $(this).serialize(), function(json){
+    console.log(json);
+    if(json.error){
+      $('#login_error_p').html(json.error.msg)
+      //use jquery for errrs on html
+    }
+  })
+  return false;
+  // e.preventDefault();
+})
 })
