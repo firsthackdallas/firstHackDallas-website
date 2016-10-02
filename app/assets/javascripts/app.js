@@ -5,6 +5,8 @@ $(document).on("turbolinks:load", function(){
     dismissible: false,
     onHide: function(){
       $('#login_error_p').html('');
+      $('#login_form').find('input[name="email"]').val('');
+      $('#login_form').find('input[name="password"]').val('');
     }
   });
   $('#close_new_team_form').click(function(){
