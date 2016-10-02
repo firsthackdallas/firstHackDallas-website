@@ -2,7 +2,10 @@ $(document).on("turbolinks:load", function(){
 	$('#login').webuiPopover({
     url:'#login_div',
     closeable: true,
-    dismissible: false
+    dismissible: false,
+    onHide: function(){
+      $('#login_error_p').html('');
+    }
   });
   $('#close_new_team_form').click(function(){
   	$("#new_team_form").hide();
@@ -17,11 +20,10 @@ $(document).on("turbolinks:load", function(){
   $(".button-collapse").sideNav();
   $("#login_form").submit(function(){
     $.post($(this).attr('action'), $(this).serialize(), function(json){
-      console.log(json);
       if(json.error){
         $('#login_error_p').html(json.error.msg)
       }
     })
-  return false;
+    return false;
   })
 })
