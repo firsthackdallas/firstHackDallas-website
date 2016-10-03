@@ -1,7 +1,20 @@
 class SessionsController < ApplicationController
 	def create
-		user = user.find_by(email: params[:email])
-		flash[:login_errors] = "Invalid Credentials." unless user && user.authenticate(params[:password])
-		redirect_to :back
+		user = User.find_by(email: params[:email])
+		if user && user.authenticate(params[:password])
+			session[:user_id] = user.id
+			redirect_to '/teams'
+		else
+			errors = {
+				error: {
+					msg: 'Invalid Credentials.'
+				}
+			}
+			render json: errors.to_json
+		end
+	end
+	def destroy
+		reset_session
+		redirect_to '/'
 	end
 end
