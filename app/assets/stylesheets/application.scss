@@ -90,7 +90,8 @@ img.team_avatar{
 }
 
 .team_card{
-  height: 340px;
+  max-height: 385px;
+  min-height: 350px;
 }
 
 .chip{
