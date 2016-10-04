@@ -33,6 +33,9 @@
       <nav class="light-blue lighten-1" role="navigation">
         <div class="nav-wrapper container"> <a href="#!" class="brand-logo"><i><%= image_tag "logo_new.gif", class: "logo_icon" %></i>First Hack Dallas</a>
           <ul class="right hide-on-med-and-down">
+          <% if admin %>
+            <li><a href="/admins/dashboard">Admins</a></li>
+          <% end %>
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/events">Events</a></li>
