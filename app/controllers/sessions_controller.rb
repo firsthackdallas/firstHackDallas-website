@@ -3,7 +3,11 @@ class SessionsController < ApplicationController
 		user = User.find_by(email: params[:email])
 		if user && user.authenticate(params[:password])
 			session[:user_id] = user.id
-			redirect_to '/teams'
+			if user.admin
+				redirect_to '/admins/dashboard'
+			else
+				redirect_to '/teams'
+			end
 		else
 			errors = {
 				error: {

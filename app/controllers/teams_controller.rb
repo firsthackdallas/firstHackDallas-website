@@ -14,6 +14,10 @@ class TeamsController < ApplicationController
 		end
 		redirect_to '/teams'
 	end
+	def destroy
+		Team.destroy(params[:id])
+		redirect_to '/admins/dashboard'
+	end
 
 	private
 		def team_params

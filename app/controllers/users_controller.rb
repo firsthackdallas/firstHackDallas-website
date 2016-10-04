@@ -24,6 +24,10 @@ class UsersController < ApplicationController
 		user.save
 		redirect_to '/teams'
 	end
+	def destroy
+		User.destroy(params[:id])
+		redirect_to '/admins/dashboard'
+	end
 
 	private
 		def user_params
