@@ -4,5 +4,6 @@ class AdminsController < ApplicationController
 		@users = User.all
 		@teams = Team.all
 		@admins = Admin.all
+		@wait_list = WaitList.all
 	end
 end

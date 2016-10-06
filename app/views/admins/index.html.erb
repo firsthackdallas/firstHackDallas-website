@@ -1,29 +1,32 @@
 <div class="row">
-<% if @users %>
-	<h4>Registered Users</h4>
-	<h6>Total Hackers: <%= @users.count - @admins.count %></h6>
-	<table class="highlight">
-		<tr>
-			<th>Name</th>
-			<th>Team</th>
-			<th>Actions</th>
-		</tr>
-		<% @users.each do |user| %>
-			<% if ! user.admin %>
+	<% if @users %>
+		<h4>Registered Users</h4>
+		<h6>Total Hackers: <%= @users.count - @admins.count %></h6>
+		<table class="highlight">
 			<tr>
-				<td><%= user.first_name %> <%= user.last_name %></td>
-				<td>
-					<% if user.team %>
-						<%= user.team.name %>
-					<% end %>
-				</td>
-				<td><a href="/users/<%=user.id%>/destroy" data-method="delete">Delete</a></td>
+				<th>Name</th>
+				<th>Team</th>
+				<th>Email</th>
+				<th>Actions</th>
 			</tr>
+			<% @users.each do |user| %>
+				<% if ! user.admin %>
+				<tr>
+					<td><%= user.first_name %> <%= user.last_name %></td>
+					<td>
+						<% if user.team %>
+							<%= user.team.name %>
+						<% end %>
+					</td>
+					<td><%= user.email %></td>
+					<td><a href="/users/<%=user.id%>/destroy" data-method="delete">Delete</a></td>
+				</tr>
+				<% end %>
 			<% end %>
-		<% end %>
-	</table>
-<% end %>
+		</table>
+	<% end %>
 </div>
+
 <div class="row">
 	<% if @teams %>
 		<h4>Registered Teams</h4>
@@ -39,6 +42,27 @@
 					<td><%= team.name %></td>
 					<td><%= team.users.count %></td>
 					<td><a href="/teams/<%= team.id %>/destroy" data-method="delete">Delete</a></td>
+				</tr>
+			<% end %>
+		</table>
+	<% end %>
+</div>
+
+<div class="row">
+	<% if @wait_list %>
+		<h4>Waiting List</h4>
+		<h6>Total on Waiting List: <%= @wait_list.count %> </h6>
+		<table class="highlight">
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Action</th>
+			</tr>
+			<% @wait_list.each do |list| %>
+				<tr>
+					<td><%= list.user.first_name %> <%= list.user.last_name %></td>
+					<td><%= list.user.email %></td>
+					<td><a href="/wait_list/<%= list.id %>/destroy" data-method="delete">Delete</a></td>
 				</tr>
 			<% end %>
 		</table>
