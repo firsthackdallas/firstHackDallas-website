@@ -6,10 +6,13 @@ class UsersController < ApplicationController
 		user = User.new(user_params)
 		if user.save
 			session[:user_id] = user.id
+			user_count = User.count - Admin.count
+			if user_count > 4
+				WaitList.create(user_id: user.id)
+			end
 			redirect_to '/teams'
 		else
 			flash[:registration_errors] = user.errors
-			print user.errors.full_messages
 			redirect_to '/users/new'
 		end
 	end
