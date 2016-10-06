@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 		if user.save
 			session[:user_id] = user.id
 			user_count = User.count - Admin.count
-			if user_count > 4
+			if user_count > 55
 				WaitList.create(user_id: user.id)
 			end
 			redirect_to '/teams'
