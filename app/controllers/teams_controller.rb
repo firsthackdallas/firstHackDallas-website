@@ -5,13 +5,18 @@ class TeamsController < ApplicationController
 		@users = User.all
 	end
 	def create
-		team = Team.new(team_params)
-		if team.save
-				user = User.find(session[:user_id])
-				user[:team_id] = team.id if user
-				user.save
+		user_count = User.count = Admin.count
+		if user_count < 55
+			team = Team.new(team_params)
+			if team.save
+					user = User.find(session[:user_id])
+					user[:team_id] = team.id if user
+					user.save
+			else
+				flash[:errors] = team.errors.full_messages
+			end
 		else
-			flash[:errors] = team.errors.full_messages
+			flash[:user_count_error] = "We have reached our hacker capacity and are not accepting new teams at this time."
 		end
 		redirect_to '/teams'
 	end

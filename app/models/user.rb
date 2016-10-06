@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
 	has_one :admin
+	has_one :wait_list
 	belongs_to :team, optional: true
   has_attached_file :avatar, default_url: "default_avatar.jpg"
 	validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
