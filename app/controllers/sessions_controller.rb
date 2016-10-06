@@ -17,6 +17,11 @@ class SessionsController < ApplicationController
 			render json: errors.to_json
 		end
 	end
+
+	def mobile
+		
+	end
+
 	def destroy
 		reset_session
 		redirect_to '/'
