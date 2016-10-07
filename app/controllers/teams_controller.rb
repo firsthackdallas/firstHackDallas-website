@@ -5,7 +5,7 @@ class TeamsController < ApplicationController
 		@users = User.all
 	end
 	def create
-		user_count = User.count = Admin.count
+		user_count = User.count - Admin.count
 		if user_count < 55
 			team = Team.new(team_params)
 			if team.save
