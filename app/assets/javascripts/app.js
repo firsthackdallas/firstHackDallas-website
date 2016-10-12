@@ -21,7 +21,7 @@ $(document).on("turbolinks:load", function(){
   $(".login_form").submit(function(){
     $.post($(this).attr('action'), $(this).serialize(), function(json){
       if(json.error){
-        $('.login_error_p').html(json.error.msg)
+        $('.login_error_p').html(json.error.msg);
       }
     })
     return false;
