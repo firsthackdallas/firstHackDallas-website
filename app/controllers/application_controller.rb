@@ -4,8 +4,15 @@ class ApplicationController < ActionController::Base
   	User.find(session[:user_id]) if session[:user_id]
   end
   def require_login
-  	redirect_to '/sessions/new' if session[:user_id] == nil
+  	redirect_to '/' if session[:user_id] == nil
+  end
+  def admin
+  	Admin.find_by({user_id: session[:user_id]}) if session[:user_id]
+  end
+  def require_admin
+  	redirect_to '/' if ! admin
   end
 
   helper_method :current_user
+  helper_method :admin
 end

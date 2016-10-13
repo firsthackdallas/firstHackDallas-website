@@ -6,9 +6,13 @@ Rails.application.routes.draw do
   get '/teams' => 'teams#index'
   post '/teams' => 'teams#create'
   get '/users/new' => 'users#new'
+  get '/mobile-login' => 'sessions#mobile'
   post '/users' => 'users#create'
   post '/sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy'
+  get '/admins/dashboard' => 'admins#index'
   post '/teams/roster/:id' => 'users#add_team'
   delete '/teams/roster/:id' => 'users#remove_team'
+  delete '/teams/:id/destroy' => 'teams#destroy'
+  delete '/users/:id/destroy' => 'users#destroy'
 end

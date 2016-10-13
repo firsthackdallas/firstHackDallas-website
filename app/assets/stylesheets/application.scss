@@ -90,7 +90,7 @@ img.team_avatar{
 }
 
 .team_card{
-  height: 340px;
+  height: 400px;
 }
 
 .chip{
@@ -124,6 +124,21 @@ img.team_avatar{
   color: red;
 }
  /* --Home Page-- */
+
+.img_bandaid{
+  width: 100%;
+  height: 112.5px;
+  line-height: 100px;
+}
+  .img_bandaid img{
+    vertical-align: middle;
+    display: inline;
+  }
+
+#stef_link{
+  text-decoration: none;
+  color: black;
+}
 
 #meet_team_link{
   margin-right: 1em;
