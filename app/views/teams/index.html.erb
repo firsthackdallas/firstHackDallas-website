@@ -1,36 +1,78 @@
-<h2 class="center-align">Teams</h2>
-<button class="btn waves-effect waves-light new_team_link">Add a new Team</button>
+<div class="row">	
+	<h2 class="center-align">Teams</h2>
+	<% if ! current_user.team_id && ! current_user.wait_list %>
+		<button class="btn waves-effect waves-light new_team_link">Add a new Team</button>
+	<% elsif current_user.wait_list && ! current_user.team_id %>
+		<p class="error">I'm sorry, <%= current_user.first_name %>, we have reached our hacker capacity and you are now on the waiting list.  You may join a team if their roster is not full, otherwise we will inform you should a spot open up for a new team.  Thank you for registering with First Hack Dallas.</p>
+	<% end %>
+</div>
 
-<div id="new_team_form" class="row">
-	<form action="/teams" method="post" class="input-field col s12" enctype="multipart/form-data">
-		<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
-		<div class="input-field col s6">
-			<label for="team_name">Team Name</label>
-			<input id="team_name" type="text" name="team[name]" class="validate">
-		</div>
-		<div class="file-field input-field col s6">
-			<div class="btn">
-				<span>Avatar</span>
-				<input type="file" name="team[avatar]">
+<div class="row">
+	<div class="col s12 card" id="new_team_form">
+		<form action="/teams" method="post" class="input-field col s12" enctype="multipart/form-data">
+			<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+			<div class="input-field col s6">
+				<label for="team_name">Team Name</label>
+				<input id="team_name" type="text" name="team[name]" class="validate">
 			</div>
-			<div class="file-path-wrapper">
-				<input class="file-path validate" type="text">
+			<div class="file-field input-field col s6">
+				<div class="btn">
+					<span>Avatar</span>
+					<input type="file" name="team[avatar]">
+				</div>
+				<div class="file-path-wrapper">
+					<input class="file-path validate" type="text">
+				</div>
 			</div>
-		</div>
-		<button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
-		<button id="close_new_team_form" class="waves-effect waves-green btn-flat">Close</button>
-	</form>
+
+			<% if flash[:errors] %>
+				<% flash[:errors].each do |error| %>
+					<p class="error"><%= error %></p>
+				<% end %>
+			<% end %>
+
+			<% if flash[:user_count_error] %>
+				<p class="error"><%= flash[:user_count_error] %></p>
+			<% end %>
+
+			<button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+			<button id="close_new_team_form" class="waves-effect waves-green btn-flat">Close</button>
+		</form>
+	</div>
 </div>
 
 <% if @teams %>
 	<div class="row">
 		<% @teams.each do |team| %>
-		<div class="col s4">
-			<p class="center-align">
-				<img class="responsive-img circle team_avatar" src="<%= team.avatar.url %>">
-			</p>
-			<h4 class="center-align"><%= team.name %></h4>
-		</div>
+			<div class="col s12 m6 l4">
+				<div class="card horizontal team_card">
+					<div class="card-image">
+						<%= image_tag team.avatar.url, class: "team_avatar" %>
+					</div>
+					<div class="card-stacked">
+						<div class="card-content">
+							<h5 class="center-align"><%= team.name %></h5>
+							<% if team.users %>
+								<% team.users.each do |user| %>
+									<div class="chip">
+										<%= image_tag user.avatar.url %>
+										<span class="truncate"><%= user.first_name%> <%= user.last_name %></span>
+									</div>
+								<% end %>
+							<% end %>
+						</div>
+						<div class="card-action">
+						<% if team.users.include? current_user %>
+							<a href="/teams/roster/<%=team.id%>" data-method="delete">Leave</a>
+						<% elsif ! current_user.team_id && team.users.count < 5 %>
+							<a href="/teams/roster/<%=team.id%>" data-method="post">Join</a>
+						<% elsif team.users.count > 4 %>
+							<p class="roster_full">Team roster is full!</p>
+						<% end %>
+						</div>
+					</div>
+				</div>
+			</div>
 		<% end %>
 	</div>
 <% end %>

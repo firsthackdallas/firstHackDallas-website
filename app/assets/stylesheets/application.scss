@@ -9,6 +9,9 @@ $primary-color: color("blue", "lighten-2") !default;
 #current-event div {
 
 }
+.error{
+  color: red;
+}
 
 time.icon {
   font-size: 1em; /* change icon size */
@@ -55,6 +58,8 @@ time.icon span {
   color: #2f2f2f;
 }
 
+/* --Teams Page */
+
 img.team_avatar{
   height: 8em;
   width: 8em;
@@ -64,16 +69,33 @@ img.team_avatar{
   background-color: #64b4f5;
 }
 
-#login-form{
+#login_div{
   width: 300px;
 }
 
 #new_team_form{
   display: none;
+  padding-bottom: 10px;
+}
+#new_team_form form{
+  margin-bottom: 10px;
 }
 
 .btn:hover{
   background-color: #5AA3DE;
+}
+
+.roster_full{
+  margin: 0;
+}
+
+.team_card{
+  height: 400px;
+}
+
+.chip{
+  display: block;
+  text-overflow: ellipsis;
 }
 
 /* --About Page-- */
@@ -91,4 +113,43 @@ img.team_avatar{
 }
 .img_boxF {
   margin-top: 55px;
+}
+#register_link{
+  margin-bottom: 20px;
+}
+
+/* --Register Page-- */
+
+.form_error{
+  color: red;
+}
+ /* --Home Page-- */
+
+.img_bandaid{
+  width: 100%;
+  height: 112.5px;
+  line-height: 100px;
+}
+  .img_bandaid img{
+    vertical-align: middle;
+    display: inline;
+  }
+
+#stef_link{
+  text-decoration: none;
+  color: black;
+}
+
+#meet_team_link{
+  margin-right: 1em;
+}
+
+.logo_icon{
+  height: 40px;
+  width: 40px;
+  margin-top: 10px;
+}
+
+.navbar-fixed{
+  margin-bottom: 10px;
 }
