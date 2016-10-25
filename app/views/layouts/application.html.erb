@@ -21,25 +21,25 @@
     </script>
   </head>
   <body>
+  <div id="wrapper">
+    <!-- Dropdown Structure -->
+    <div id="login_div" class="webui-popover-content">
+      <form class="login_form" action="/sessions" method="post">
+        <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+        <div class="input-field col s12">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email">
+        </div>
+        <div class="input-field col s12">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password">
+        </div>
+        <p class="login_error_p error"></p>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Log In</button>
+      </form>
+    </div>
 
-  <!-- Dropdown Structure -->
-  <div id="login_div" class="webui-popover-content">
-    <form class="login_form" action="/sessions" method="post">
-      <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
-      <div class="input-field col s12">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email">
-      </div>
-      <div class="input-field col s12">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password">
-      </div>
-      <p class="login_error_p error"></p>
-      <button class="btn waves-effect waves-light" type="submit" name="action">Log In</button>
-    </form>
-  </div>
-
-  <!-- responsive menu+dropdown V -fs -->
+    <!-- responsive menu+dropdown V -fs -->
     <div class="navbar-fixed">
       <nav class="light-blue lighten-1" role="navigation">
         <div class="nav-wrapper container"> <a href="#!" class="brand-logo"><i><%= image_tag "logo_new.gif", class: "logo_icon" %></i>First Hack Dallas</a>
@@ -88,5 +88,12 @@
   	<div class="container">
 	    <%= yield %>
 	  </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="blue lighten-1 center">
+      © 2016 First Hack Dallas 
+      <a class="grey-text text-lighten-4" href="http://hackcodeofconduct.org/firsthackdallas" target="_blank"> Code of Conduct</a>
+    </div>
+  </div>
   </body>
 </html>
