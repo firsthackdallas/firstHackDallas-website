@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   delete '/teams/roster/:id' => 'users#remove_team'
   delete '/teams/:id/destroy' => 'teams#destroy'
   delete '/users/:id/destroy' => 'users#destroy'
+  delete '/wait_list/:id/destroy' => 'users#remove_from_wait_list'
 end

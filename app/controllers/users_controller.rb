@@ -32,6 +32,10 @@ class UsersController < ApplicationController
 		User.destroy(params[:id])
 		redirect_to '/admins/dashboard'
 	end
+	def remove_from_wait_list
+		WaitList.destroy(params[:id])
+		redirect_to '/admins/dashboard'
+	end
 
 	private
 		def user_params
