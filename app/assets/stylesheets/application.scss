@@ -153,3 +153,27 @@ img.team_avatar{
 .navbar-fixed{
   margin-bottom: 10px;
 }
+
+.footer-copyright a {
+  margin-left: 20px;
+  text-decoration: underline;
+}
+
+html, body, #wrapper {
+  height: 100%;
+}
+
+body > #wrapper {
+  height: auto;
+  min-height: calc(100% - 1.5em);
+}
+
+.footer-copyright {
+  clear: both;
+  position: relative;
+  z-index: 10;
+}
+
+#wrapper {
+  padding-bottom: 3em;
+}
