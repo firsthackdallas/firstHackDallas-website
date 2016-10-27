@@ -134,11 +134,10 @@ img.team_avatar{
     vertical-align: middle;
     display: inline;
   }
-
-#stef_link{
-  text-decoration: none;
-  color: black;
-}
+  .img_bandaid a{
+    display: table;
+    margin: auto;
+  }
 
 #meet_team_link{
   margin-right: 1em;
