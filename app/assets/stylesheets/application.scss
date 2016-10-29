@@ -105,6 +105,11 @@ img.team_avatar{
 .card-panel {
   height: 350px;
 }
+  .about_description{
+    overflow-y: scroll;
+    overflow-x: scroll;
+    max-height: 300px;
+  }
 .lft {
   margin-right: 45px;
 }
