@@ -11,6 +11,13 @@ Rails.application.routes.draw do
   post '/sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy'
   get '/admins/dashboard' => 'admins#index'
+  get '/password/recovery' => 'users#recover_password'
+  get '/password/recovery/confirmed' => 'users#recover_password_email_sent'
+  post '/password/recovery' => 'users#request_password_recovery_token'
+  get '/password/reset/confirmation' => 'users#password_reset_confirmation'
+  
+  post '/password/reset/:token' => 'users#reset_password'
+  get '/password/reset/:token' => 'users#edit_password'
   post '/teams/roster/:id' => 'users#add_team'
   delete '/teams/roster/:id' => 'users#remove_team'
   delete '/teams/:id/destroy' => 'teams#destroy'

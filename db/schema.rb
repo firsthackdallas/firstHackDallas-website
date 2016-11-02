@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006152228) do
+ActiveRecord::Schema.define(version: 20161102144206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 20161006152228) do
     t.time     "time"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "reset_passwords", force: :cascade do |t|
+    t.string   "token"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reset_passwords_on_user_id", using: :btree
   end
 
   create_table "team_captains", force: :cascade do |t|
@@ -76,6 +84,7 @@ ActiveRecord::Schema.define(version: 20161006152228) do
   end
 
   add_foreign_key "admins", "users"
+  add_foreign_key "reset_passwords", "users"
   add_foreign_key "team_captains", "teams"
   add_foreign_key "team_captains", "users"
   add_foreign_key "teams", "events"

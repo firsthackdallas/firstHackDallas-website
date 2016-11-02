@@ -11,16 +11,16 @@
 			</tr>
 			<% @users.each do |user| %>
 				<% if ! user.admin %>
-				<tr>
-					<td><%= user.first_name %> <%= user.last_name %></td>
-					<td>
-						<% if user.team %>
-							<%= user.team.name %>
-						<% end %>
-					</td>
-					<td><%= user.email %></td>
-					<td><a href="/users/<%=user.id%>/destroy" data-method="delete">Delete</a></td>
-				</tr>
+					<tr>
+						<td><%= user.first_name %> <%= user.last_name %></td>
+						<td>
+							<% if user.team %>
+								<%= user.team.name %>
+							<% end %>
+						</td>
+						<td><%= user.email %></td>
+						<td><a href="/users/<%=user.id%>/destroy" data-method="delete">Delete</a></td>
+					</tr>
 				<% end %>
 			<% end %>
 		</table>

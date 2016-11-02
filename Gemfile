@@ -31,6 +31,7 @@ gem 'materialize-sass'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'paperclip'
 gem 'hirb'
+gem 'mail'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
