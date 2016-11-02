@@ -50,6 +50,7 @@ class UsersController < ApplicationController
 			user = token.user
 			user.password = user_params[:password]
 			user.save
+			ResetPassword.destroy(token.id)
 			redirect_to '/password/reset/confirmation'
 		else
 			flash[:errors]  = "Bad password reset token."
