@@ -53,7 +53,8 @@ class UsersController < ApplicationController
 			ResetPassword.destroy(token.id)
 			redirect_to '/password/reset/confirmation'
 		else
-			flash[:errors]  = "Bad password reset token."
+			flash[:errors] = "Bad password reset token."
+			redirect_to "/password/reset/" + params[:token]
 		end
 	end
 	def password_reset_confirmation
@@ -85,6 +86,13 @@ class UsersController < ApplicationController
 
 	private
 		def user_params
-			params.require(:user).permit(:first_name, :last_name, :email, :avatar, :password, :password_confirmation)
+			params.require(:user).permit(
+				:first_name,
+				:last_name,
+				:email,
+				:avatar,
+				:password,
+				:password_confirmation
+			)
 		end
 end
