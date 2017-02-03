@@ -18,7 +18,7 @@ $primary-color: color("blue", "lighten-2") !default;
 }
 th{
   height: 52px;
-  width: 137px; 
+  width: 137px;
 }
 
 /* --Teams Page */
@@ -63,7 +63,7 @@ img.team_avatar{
 
 /* --About Page-- */
 .upper {
-  margin: 35px auto;
+  // margin: 35px auto;
 }
 .card-panel {
   height: 350px;
@@ -107,7 +107,7 @@ img.team_avatar{
     margin: auto;
   }
 
-#meet_team_link{
+#home-navigation-buttons{
   margin-right: 1em;
 }
 
@@ -124,6 +124,7 @@ img.team_avatar{
 .footer-copyright a {
   margin-left: 20px;
   text-decoration: underline;
+
 }
 
 html, body, #wrapper {
@@ -140,7 +141,61 @@ body > #wrapper {
   position: relative;
   z-index: 10;
 }
+.footer-content{
+  padding: 20px 0px;
+}
 
 #wrapper {
   padding-bottom: 3em;
 }
+.tiers span{
+  font-family: 'Alex Brush', cursive;
+}
+.tiers{
+  color: #202020;
+}
+.gold, .card .gold{
+  background-color: #EFCE5A;
+}
+.emerald, .card .emerald{
+  background-color: #169776;
+}
+.silver, .card .silver{
+  background-color: #D1D1D3;
+}
+#card-face{
+  padding-top: 150px;
+}
+#card-face p{
+  padding-bottom: 150px;
+}
+.card .card-title{
+  font-size: 60px;
+  text-align: center;
+}
+.card .btn{
+  margin-top: 30px;
+}
+.card .material-icons{
+  margin-left: 5px;
+}
+.past-sponsors h4{
+  margin: 30px 0px;
+}
+.past-sponsors .row{
+  margin-top: 10px;
+  height: 150px;
+}
+.sponsor-success{
+  color: #33cc33;
+}
+.sponsor-type label{
+  font-size: 12px;
+}
+#sponsor-form p{
+  margin: 0px;
+}
+.dojo img{
+  margin-top: 50px;
+}
+>>>>>>> added Sponsors page with form and  modified fonts

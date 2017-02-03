@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  get 'sponsors/index'
+
   root 'pages#index'
   get '/about' => 'pages#about'
   get '/events' => 'events#index'
+  get '/sponsors' => 'sponsors#index'
+  post '/sponsors' => 'sponsors#create'
   get '/contact' => 'contacts#index'
   get '/teams' => 'teams#index'
   post '/teams' => 'teams#create'
@@ -15,7 +19,7 @@ Rails.application.routes.draw do
   get '/password/recovery/confirmed' => 'users#recover_password_email_sent'
   post '/password/recovery' => 'users#request_password_recovery_token'
   get '/password/reset/confirmation' => 'users#password_reset_confirmation'
-  
+
   post '/password/reset/:token' => 'users#reset_password'
   get '/password/reset/:token' => 'users#edit_password'
   post '/teams/roster/:id' => 'users#add_team'
