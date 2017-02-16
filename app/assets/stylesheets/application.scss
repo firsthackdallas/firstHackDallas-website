@@ -18,7 +18,7 @@ $primary-color: color("blue", "lighten-2") !default;
 }
 th{
   height: 52px;
-  width: 137px; 
+  width: 137px;
 }
 
 /* --Teams Page */
@@ -120,7 +120,12 @@ img.team_avatar{
 .navbar-fixed{
   margin-bottom: 10px;
 }
-
+nav ul{
+  margin-left: 39%; 
+}
+nav ul a{
+  padding: 0px 8px;
+}
 .footer-copyright a {
   margin-left: 20px;
   text-decoration: underline;

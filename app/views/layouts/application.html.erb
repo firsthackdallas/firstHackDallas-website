@@ -40,23 +40,23 @@
     </div>
 
     <!-- responsive menu+dropdown V -fs -->
-    <div class="navbar-fixed">
+    <div class "navbar-fixed">
       <nav class="light-blue lighten-1" role="navigation">
         <div class="nav-wrapper container"> <a href="/" class="brand-logo"><i><%= image_tag "logo_new.gif", class: "logo_icon" %></i>First Hack Dallas</a>
-          <ul class="right hide-on-med-and-down">
+          <ul class="hide-on-med-and-down">
           <% if admin %>
             <li><a href="/admins/dashboard">Admins</a></li>
           <% end %>
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/events">Events</a></li>
-            <li><a href="/mentors">Mentor Sign Up</li> 
+            <li><a href="/mentors">Mentor Sign Up</li>
             <% if current_user %>
               <li><a href="/teams">Teams</a></li>
             <% elsif %>
               <li><a href="/users/new">Register</a></li>
             <% else %>
-              <li><a href="#">Mentor Sign Up</li>
+              <li><a href="/mentors">Mentor Sign Up</li>
             <% end %>
             <li><a href="/contact">Contact</a></li>
             <% if current_user %>
