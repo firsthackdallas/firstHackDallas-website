@@ -111,6 +111,17 @@ img.team_avatar{
   margin-right: 1em;
 }
 
+/* Mentor Sign Up page */
+#mentor_sign_up_form{
+  width: 1000px;
+}
+#techarea{
+  width: 300%;
+}
+.form_success{
+  color: green; 
+}
+
 .logo_icon{
   height: 40px;
   width: 40px;
@@ -121,7 +132,7 @@ img.team_avatar{
   margin-bottom: 10px;
 }
 nav ul{
-  margin-left: 39%; 
+  margin-left: 39%;
 }
 nav ul a{
   padding: 0px 8px;
