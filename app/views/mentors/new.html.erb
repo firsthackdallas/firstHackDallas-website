@@ -1,9 +1,21 @@
 <h4>Mentor Sign Up</h4>
+
+<!-- Success msg once mentor has successfully signed up for a time -->
 <% if flash[:success] %>
     <div class="col s12 m6 l4" id="success_mentor">
       <p class="form_success"><%= flash[:success] %></p>
     </div>
 <%end%>
+
+<!-- Output errors -->
+<% if flash[:errors] %>
+  <div class="form_errors">
+    <% flash[:errors].each do |err| %>
+      <%= err %>
+      <div class="blank"></div>
+    <% end %>
+  </div>
+<% end %>
 
 <div class="row">
   <form class="col s12 m12 l8" id="mentor_sign_up_form" action="/mentors" method="post" enctype="multipart/form-data">
@@ -25,7 +37,7 @@
         <input type="text" name="mentor[tech]" class="validate" placeholder="Separate each tech by commas.">
     </div>
     <div class="input-field col s12 m6 l4">
-        <select multiple class="validate" name="mentor[time]">
+        <select multiple class="validate" name="mentor[time][]" id="options">
           <option value="" disabled selected>Choose your option</option>
           <option value="nine_eleven">9AM - 11AM</option>
           <option value="eleven_one">11AM - 1PM</option>

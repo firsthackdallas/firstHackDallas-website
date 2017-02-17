@@ -119,7 +119,13 @@ img.team_avatar{
   width: 300%;
 }
 .form_success{
-  color: green; 
+  color: green;
+}
+
+.form_errors{
+  display: block;
+  color: red;
+  font-weight: bold; 
 }
 
 .logo_icon{
