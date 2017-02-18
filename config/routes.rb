@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  get 'sponsors/index'
+
   root 'pages#index'
   get '/about' => 'pages#about'
   get '/events' => 'events#index'
+  get '/sponsors' => 'sponsors#index'
+  post '/sponsors' => 'sponsors#create'
   get '/contact' => 'contacts#index'
   get '/teams' => 'teams#index'
   post '/teams' => 'teams#create'
