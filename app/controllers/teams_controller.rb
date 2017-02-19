@@ -1,12 +1,12 @@
 class TeamsController < ApplicationController
 	before_action :require_login
 	def index
-		@teams = Team.all
+		@teams = Team.where(event: Event.last)
 		@users = User.all
 	end
 	def create
 		user_count = User.count - Admin.count
-		if user_count < 55
+		if user_count < 75
 			team = Team.new(team_params)
 			if team.save
 					user = User.find(session[:user_id])
