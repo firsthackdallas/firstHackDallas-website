@@ -6,8 +6,8 @@ class TeamsController < ApplicationController
 	end
 	def create
 		user_count = User.count - Admin.count
-		if user_count < 75
-			team = Team.new(team_params)
+		if user_count < 200
+			team = Team.new(team_params.merge(event: Event.last))
 			if team.save
 					user = User.find(session[:user_id])
 					user[:team_id] = team.id if user
