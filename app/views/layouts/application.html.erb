@@ -18,6 +18,10 @@
 
       ga('create', 'UA-85213535-1', 'auto');
       ga('send', 'pageview');
+
+      $(document).ready(function() {
+        $('select').material_select();
+      });
     </script>
   </head>
   <body>
@@ -40,20 +44,21 @@
     </div>
 
     <!-- responsive menu+dropdown V -fs -->
-    <div class="navbar-fixed">
+    <div class "navbar-fixed">
       <nav class="light-blue lighten-1" role="navigation">
         <div class="nav-wrapper container"> <a href="/" class="brand-logo"><i><%= image_tag "logo_new.gif", class: "logo_icon" %></i>First Hack Dallas</a>
-          <ul class="right hide-on-med-and-down">
+          <ul class="hide-on-med-and-down">
           <% if admin %>
             <li><a href="/admins/dashboard">Admins</a></li>
           <% end %>
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/events">Events</a></li>
+            <li><a href="/mentors">Mentor Sign Up</a></li>
             <li><a href="/sponsors">Sponsors</a></li>
             <% if current_user %>
               <li><a href="/teams">Teams</a></li>
-            <% else %>
+            <% elsif %>
               <li><a href="/users/new">Register</a></li>
             <% end %>
             <li><a href="/contact">Contact</a></li>
@@ -68,6 +73,7 @@
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/events">Events</a></li>
+            <li><a href="/mentors">Mentor Sign Up</a></li>
             <li><a href="/sponsors">Sponsors</a></li>
             <% if current_user %>
               <li><a href="/teams">Teams</a></li>
@@ -92,7 +98,7 @@
 	  </div>
   </div>
   <div class="footer-copyright">
-    <div class="blue lighten-1 center footer-content">
+    <div class="blue lighten-1 center">
       © 2017 First Hack Dallas
       <a class="grey-text text-lighten-4" href="http://hackcodeofconduct.org/firsthackdallas" target="_blank"> Code of Conduct</a>
       <a class="grey-text text-lighten-4" href="https://docs.google.com/document/d/1XbiLw3059fAYDITngRMukjzogy2rJEX9fzxpOynzUvk/edit?usp=sharing" target="_blank"> IP Release</a>

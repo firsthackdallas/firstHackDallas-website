@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   post '/sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy'
   get '/admins/dashboard' => 'admins#index'
+  get '/mentors' => 'mentors#new'
+  post '/mentors' => 'mentors#create'
   get '/password/recovery' => 'users#recover_password'
   get '/password/recovery/confirmed' => 'users#recover_password_email_sent'
   post '/password/recovery' => 'users#request_password_recovery_token'

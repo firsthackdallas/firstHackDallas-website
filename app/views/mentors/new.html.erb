@@ -1,0 +1,80 @@
+<h4>Mentor Sign Up</h4>
+
+<!-- Success msg once mentor has successfully signed up for a time -->
+<% if flash[:success] %>
+    <div class="col s12 m6 l4" id="success_mentor">
+      <p class="form_success"><%= flash[:success] %></p>
+    </div>
+<%end%>
+
+<!-- Output errors -->
+<% if flash[:errors] %>
+  <div class="form_errors">
+    <% flash[:errors].each do |err| %>
+      <%= err %>
+      <div class="blank"></div>
+    <% end %>
+  </div>
+<% end %>
+
+<div class="row">
+  <form class="col s12 m12 l8" id="mentor_sign_up_form" action="/mentors" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+    <div class="input-field col s12 m6 l4">
+      <label for="first_name">First Name</label>
+			  <input type="text" id="first_name" name="mentor[first_name]" class="validate">
+		</div>
+    <div class="input-field col s12 m6 l4">
+      <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" name="mentor[last_name]" class="validate">
+    </div>
+    <div class="input-field col s12 m6 l4">
+      <label for="email">Email</label>
+       <input type="text" id="email" name="mentor[email]" class="validate">
+    </div>
+    <div class="input-field col s12 m6 l4">
+      <label for="tech_input">Tech Familiar With</label>
+        <input type="text" name="mentor[tech]" class="validate" placeholder="Separate each tech by commas.">
+    </div>
+
+    <div class="input-field col s12 m6 l4">
+        <select multiple class="validate" name="mentor[time][]" id="options">
+            <option value="" disabled selected>Choose your option</option>
+          <% if @nine_eleven_option %>
+            <option value="nine_eleven">9AM - 11AM</option>
+          <% else %>
+            <option value="nine_eleven" disabled selected>9AM - 11AM</option>
+          <% end %>
+          <% if @eleven_one_option %>
+            <option value="eleven_one">11AM - 1PM</option>
+         <% else %>
+            <option value="eleven_one" disabled selected>11AM - 1PM</option>
+          <% end %>
+          <% if @one_three_option %>
+            <option value="one_three">1PM - 3PM</option>
+          <% else %>
+            <option value="one_three" disabled selected>1PM - 3PM</option>
+          <% end %>
+          <% if @three_five_option %>
+             <option value="three_five">3PM - 5PM</option>
+          <% else %>
+             <option value="three_five" disabled selected>3PM - 5PM</option>
+          <% end %>
+          <% if @five_seven_option %>
+             <option value="five_seven">5PM - 7PM</option>
+          <% else %>
+             <option value="five_seven" disabled selected>5PM - 7PM</option>
+          <% end %>
+          <% if @seven_eight_option %>
+             <option value="seven_eight">7PM - 8PM</option>
+          <% else %>
+             <option value="seven_eight" disabled selected>7PM - 8PM</option>
+          <% end %>
+        </select>
+        <label for="mentor_time">Time Available to Mentor</label>
+    </div>
+    <div class="input-field col s12 m8">
+      <button type="submit" class="waves-effect waves-light btn">Sign Up</button>
+    </div>
+  </form>
+</div>
