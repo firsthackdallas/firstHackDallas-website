@@ -5,76 +5,148 @@
 </div>
 <div class="sponsor-header">
   <div class="row">
-    <div class="col l12">
-      <h4>Tiers</h4>
-      <p class="flow-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <div class="col s12">
+      <p class="flow-text">First Hack Dallas is brought to you exclusively through donations and sponsorships.  If you would like to donate or sponsor our event please fill out the form below and we will get in touch with you shortly.  Sponsorship benefits include but are not limited to:</p>
+      <ul class="sponsors_benefits">
+        <li class="flow-text">Addressing the hackers directly before event kick-off</li>
+        <li class="flow-text">Your own table at the event</li>
+        <li class="flow-text">Naming privileges to a break away room.  (e.g. The First Hack Dallas Room)</li>
+        <li class="flow-text">A video interview to be played during the hackaton and displayed on our site.</li>
+      </ul>
     </div>
   </div>
 </div>
-<div class="sponsor-tier-level">
+<div class="sponsor-form-body">
   <div class="row">
-    <div class="col s4 l4 tiers">
-      <div class="card emerald medium hoverable">
-        <div id="card-face" class="card-content center-align">
-          <span class="card-title activator text-darken-4">Emerald</span>
-          <p class="activator"><i>&#36;1,000</i></p>
-        </div>
-        <div class="card-reveal emerald">
-          <span class="card-title text-darken-4">Emerald<i class="material-icons right">close</i></span>
-          <ul>
-            <li>Bullet 1</li>
-            <li>Bullet 2</li>
-            <li>Bullet 3</li>
-          </ul>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <div class="center-align">
-            <a class="waves-effect waves-light btn white black-text" href="#sponsor-form">Become Emerald Sponsor</a>
-          </div>
-        </div>
+    <form id="sponsor-form" class="col s12 m12 l6 offset-l3 section scrollspy" action="/sponsors" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+      <div class="input-field col s12 m6 l6">
+        <input type="text" id="first_name" name="sponsor[first_name]" class="validate">
+        <label for="first_name">First Name</label>
+        <% if flash[:registration_errors] %>
+            <%if flash[:registration_errors]["first_name"]%>
+                <%flash[:registration_errors]["first_name"].each do |error|%>
+                    <p class="form_error">Field <%=error%></p>
+                <%end%>
+            <%end%>
+        <%end%>
       </div>
-    </div>
-    <div class="col s4 l4 tiers">
-      <div class="card medium gold hoverable">
-        <div id="card-face" class="card-content center-align">
-          <span class="card-title activator text-darken-4">Gold</span>
-          <p class="activator"><i>&#36;500</i></p>
-        </div>
-        <div class="card-reveal gold">
-          <span class="card-title text-darken-4">Gold<i class="material-icons right">close</i></span>
-          <ul>
-            <li>Bullet 1</li>
-            <li>Bullet 2</li>
-            <li>Bullet 3</li>
-          </ul>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <div class="center-align">
-            <a class="waves-effect waves-light btn white black-text" href="#sponsor-form">Become Gold Sponsor</a>
-          </div>
-        </div>
+      <div class="input-field col s12 m6 l6">
+        <input type="text" name="sponsor[last_name]" id="last_name" class="validate">
+        <label for="last_name">Last Name</label>
+        <% if flash[:registration_errors] %>
+            <%if flash[:registration_errors]["last_name"]%>
+                <%flash[:registration_errors]["last_name"].each do |error|%>
+                    <p class="form_error">Field <%=error%></p>
+                <%end%>
+            <%end%>
+        <%end%>
       </div>
-    </div>
-    <div class="col s4 l4 tiers">
-      <div class="card medium silver hoverable">
-        <div id="card-face" class="card-content center-align">
-          <span class="card-title activator text-darken-4">Silver</span>
-          <p class="activator"><i>&#36;300</i></p>
-        </div>
-        <div class="card-reveal silver">
-          <span class="card-title text-darken-4">Silver<i class="material-icons right">close</i></span>
-          <ul>
-            <li>Bullet 1</li>
-            <li>Bullet 2</li>
-            <li>Bullet 3</li>
-          </ul>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <div class="center-align">
-            <a class="waves-effect waves-light btn white black-text" href="#sponsor-form">Become Silver Sponsor</a>
-          </div>
-        </div>
+      <div class="input-field col s12 m8 l12">
+        <input type="email" name="sponsor[email]" id="email" class="validate">
+        <label for="email">Email</label>
       </div>
-    </div>
-	</div>
+      <% if flash[:registration_errors] %>
+          <%if flash[:registration_errors]["email"]%>
+              <div class="col s12 m8">
+                <%flash[:registration_errors]["email"].each do |error|%>
+                    <p class="form_error">Field <%=error%></p>
+                <%end%>
+              </div>
+          <%end%>
+      <%end%>
+      <div class="input-field col s12 l6">
+        <input type="text" name="sponsor[phone]" class="validate">
+        <label>Phone Number</label>
+        <% if flash[:registration_errors] %>
+            <%if flash[:registration_errors]["sponsorship_tier"]%>
+                <%flash[:registration_errors]["sponsorship_tier"].each do |error|%>
+                    <p class="form_error">Field <%=error%></p>
+                <%end%>
+            <%end%>
+        <%end%>
+      </div>
+      <div class="input-field col s12 l6 sponsor-type">
+        <input type="text" id="sponsor_type" name="sponsor[sponsor_type]" class="validate">
+        <label>Sponsor (e.g. Company Name, Personal)</label>
+        <% if flash[:registration_errors] %>
+            <%if flash[:registration_errors]["sponsor_type"]%>
+                <%flash[:registration_errors]["sponsor_type"].each do |error|%>
+                    <p class="form_error">Field <%=error%></p>
+                <%end%>
+            <%end%>
+        <%end%>
+      </div>
+      <div class="input-field col s12 m8 offset-l2 center-align">
+        <button class="waves-effect waves-light btn" type="submit">Become a Sponsor</button>
+      </div>
+    </form>
+  </div>
 </div>
+<!--<div class="sponsor-tier-level">-->
+  <!--<div class="row">-->
+    <!--<div class="col s4 l4 tiers">-->
+      <!--<div class="card emerald medium hoverable">-->
+        <!--<div id="card-face" class="card-content center-align">-->
+          <!--<span class="card-title activator text-darken-4">Emerald</span>-->
+          <!--<p class="activator"><i>&#36;1,000</i></p>-->
+        <!--</div>-->
+        <!--<div class="card-reveal emerald">-->
+          <!--<span class="card-title text-darken-4">Emerald<i class="material-icons right">close</i></span>-->
+          <!--<ul>-->
+            <!--<li>Bullet 1</li>-->
+            <!--<li>Bullet 2</li>-->
+            <!--<li>Bullet 3</li>-->
+          <!--</ul>-->
+          <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>-->
+          <!--<div class="center-align">-->
+            <!--<a class="waves-effect waves-light btn white black-text" href="#sponsor-form">Become Emerald Sponsor</a>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col s4 l4 tiers">-->
+      <!--<div class="card medium gold hoverable">-->
+        <!--<div id="card-face" class="card-content center-align">-->
+          <!--<span class="card-title activator text-darken-4">Gold</span>-->
+          <!--<p class="activator"><i>&#36;500</i></p>-->
+        <!--</div>-->
+        <!--<div class="card-reveal gold">-->
+          <!--<span class="card-title text-darken-4">Gold<i class="material-icons right">close</i></span>-->
+          <!--<ul>-->
+            <!--<li>Bullet 1</li>-->
+            <!--<li>Bullet 2</li>-->
+            <!--<li>Bullet 3</li>-->
+          <!--</ul>-->
+          <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>-->
+          <!--<div class="center-align">-->
+            <!--<a class="waves-effect waves-light btn white black-text" href="#sponsor-form">Become Gold Sponsor</a>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col s4 l4 tiers">-->
+      <!--<div class="card medium silver hoverable">-->
+        <!--<div id="card-face" class="card-content center-align">-->
+          <!--<span class="card-title activator text-darken-4">Silver</span>-->
+          <!--<p class="activator"><i>&#36;300</i></p>-->
+        <!--</div>-->
+        <!--<div class="card-reveal silver">-->
+          <!--<span class="card-title text-darken-4">Silver<i class="material-icons right">close</i></span>-->
+          <!--<ul>-->
+            <!--<li>Bullet 1</li>-->
+            <!--<li>Bullet 2</li>-->
+            <!--<li>Bullet 3</li>-->
+          <!--</ul>-->
+          <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>-->
+          <!--<div class="center-align">-->
+            <!--<a class="waves-effect waves-light btn white black-text" href="#sponsor-form">Become Silver Sponsor</a>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+	<!--</div>-->
+<!--</div>-->
 <div class="past-sponsors">
   <div class="col l12 center-align">
     <h4>Previously sponsored by</h4>
@@ -162,82 +234,4 @@
   		</div>
   	</div>
   </div>
-</div>
-<div class="sponsor-form">
-  <div class="sponsor-form-title center-align">
-    <h4>Become a First Hack Dallas Sponsor</h4>
-  </div>
-  <div class="sponsor-form-body">
-    <div class="row">
-    	<form id="sponsor-form" class="col s12 m12 l6 offset-l3 section scrollspy" action="/sponsors" method="post" enctype="multipart/form-data">
-    		<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
-    		<div class="input-field col s12 m6 l6">
-    			<input type="text" id="first_name" name="sponsor[first_name]" class="validate">
-    			<label for="first_name">First Name</label>
-          <% if flash[:registration_errors] %>
-      			<%if flash[:registration_errors]["first_name"]%>
-      			 	<%flash[:registration_errors]["first_name"].each do |error|%>
-      			 		<p class="form_error">Field <%=error%></p>
-      			 	<%end%>
-      			<%end%>
-      		<%end%>
-    		</div>
-    		<div class="input-field col s12 m6 l6">
-    			<input type="text" name="sponsor[last_name]" id="last_name" class="validate">
-    			<label for="last_name">Last Name</label>
-      		<% if flash[:registration_errors] %>
-      			<%if flash[:registration_errors]["last_name"]%>
-      			 	<%flash[:registration_errors]["last_name"].each do |error|%>
-      			 		<p class="form_error">Field <%=error%></p>
-      			 	<%end%>
-      			<%end%>
-      		<%end%>
-        </div>
-    		<div class="input-field col s12 m8 l12">
-    			<input type="email" name="sponsor[email]" id="email" class="validate">
-    			<label for="email">Email</label>
-    		</div>
-    		<% if flash[:registration_errors] %>
-    			<%if flash[:registration_errors]["email"]%>
-    				<div class="col s12 m8">
-    			 	<%flash[:registration_errors]["email"].each do |error|%>
-    			 		<p class="form_error">Field <%=error%></p>
-    			 	<%end%>
-    				</div>
-    			<%end%>
-    		<%end%>
-        <div class="input-field col s12 l6">
-          <select name="sponsor[sponsorship_tier]">
-            <option value="" disabled selected>Select One</option>
-            <option value="Emerald">Emerald</option>
-            <option value="Gold">Gold</option>
-            <option value="Silver">Silver</option>
-          </select>
-          <label>Sponsorship Tier</label>
-          <% if flash[:registration_errors] %>
-      			<%if flash[:registration_errors]["sponsorship_tier"]%>
-      			 	<%flash[:registration_errors]["sponsorship_tier"].each do |error|%>
-      			 		<p class="form_error">Field <%=error%></p>
-      			 	<%end%>
-      			<%end%>
-      		<%end%>
-        </div>
-        <div class="input-field col s12 l6 sponsor-type">
-          <input type="text" id="sponsor_type" name="sponsor[sponsor_type]" class="validate">
-          <label>Sponsor (e.g. Company Name, Personal)</label>
-          <% if flash[:registration_errors] %>
-      			<%if flash[:registration_errors]["sponsor_type"]%>
-      			 	<%flash[:registration_errors]["sponsor_type"].each do |error|%>
-      			 		<p class="form_error">Field <%=error%></p>
-      			 	<%end%>
-      			<%end%>
-      		<%end%>
-        </div>
-    		<div class="input-field col s12 m8 offset-l2 center-align">
-    			<button class="waves-effect waves-light btn" type="submit">Become a Sponsor</button>
-    		</div>
-    	</form>
-    </div>
-  </div>
-
 </div>

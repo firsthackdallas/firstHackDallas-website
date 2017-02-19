@@ -53,13 +53,13 @@
           <% end %>
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
-            <li><a href="/events">Hackers</a></li>
+            <li><a href="/events">Events</a></li>
             <li><a href="/mentors">Mentors</a></li>
             <li><a href="/sponsors">Sponsors</a></li>
             <% if current_user %>
               <li><a href="/teams">Teams</a></li>
             <% elsif %>
-              <li><a href="/users/new">Register</a></li>
+              <li><a href="/hackers">Hackers</a></li>
             <% end %>
             <li><a href="/contact">Contact</a></li>
             <% if current_user %>
@@ -73,12 +73,12 @@
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/events">Events</a></li>
-            <li><a href="/mentors">Mentor Sign Up</a></li>
+            <li><a href="/mentors">Mentors</a></li>
             <li><a href="/sponsors">Sponsors</a></li>
             <% if current_user %>
               <li><a href="/teams">Teams</a></li>
             <% else %>
-              <li><a href="/users/new">Register</a></li>
+              <li><a href="/hackers">Hackers</a></li>
             <% end %>
             <li><a href="/contact">Contact</a></li>
             <% if current_user %>

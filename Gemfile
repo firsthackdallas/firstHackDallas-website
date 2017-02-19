@@ -32,6 +32,7 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'paperclip'
 gem 'hirb'
 gem 'mail'
+gem 'faker'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

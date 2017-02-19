@@ -2,6 +2,18 @@
 $primary-color: color("blue", "lighten-2") !default;
 @import 'materialize';
 
+.table_buttons{
+  margin: 0 1rem;
+}
+
+.sponsors_benefits{
+  list-style-type: circle;
+}
+
+#current_event_map{
+  margin-top: 1.14rem;
+}
+
 #current-event {
   margin-top: 2em;
 }
@@ -40,6 +52,7 @@ img.team_avatar{
   display: none;
   padding-bottom: 10px;
 }
+
 #new_team_form form{
   margin-bottom: 10px;
 }

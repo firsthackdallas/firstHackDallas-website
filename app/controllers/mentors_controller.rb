@@ -34,7 +34,7 @@ class MentorsController < ApplicationController
         elsif times === "five_seven"
           five_seven_show_option()
         elsif times === "seven_eight"
-          seve_eight_show_option()
+          seven_eight_show_option()
         end
       end
     end
@@ -85,7 +85,7 @@ class MentorsController < ApplicationController
     end
   end
 
-  def seve_eight_show_option
+  def seven_eight_show_option
     if @seven_eight_count < 4
       @seven_eight_count += 1
       @seven_eight_option = true

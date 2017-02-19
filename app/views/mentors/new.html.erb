@@ -1,4 +1,4 @@
-<h4>Mentor Sign Up</h4>
+<h4>Register to beomce a First Hack Dallas Mentor</h4>
 
 <!-- Success msg once mentor has successfully signed up for a time -->
 <% if flash[:success] %>
@@ -20,24 +20,24 @@
 <div class="row">
   <form class="col s12 m12 l8" id="mentor_sign_up_form" action="/mentors" method="post" enctype="multipart/form-data">
     <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
-    <div class="input-field col s12 m6 l4">
+    <div class="input-field col s12">
+    <div class="input-field col s12">
       <label for="first_name">First Name</label>
 			  <input type="text" id="first_name" name="mentor[first_name]" class="validate">
 		</div>
-    <div class="input-field col s12 m6 l4">
+    <div class="input-field col s12">
       <label for="last_name">Last Name</label>
         <input type="text" id="last_name" name="mentor[last_name]" class="validate">
     </div>
-    <div class="input-field col s12 m6 l4">
+    <div class="input-field col s12">
       <label for="email">Email</label>
        <input type="text" id="email" name="mentor[email]" class="validate">
     </div>
-    <div class="input-field col s12 m6 l4">
+    <div class="input-field col s12">
       <label for="tech_input">Tech Familiar With</label>
-        <input type="text" name="mentor[tech]" class="validate" placeholder="Separate each tech by commas.">
+        <input type="text" name="mentor[tech]" class="validate">
     </div>
-
-    <div class="input-field col s12 m6 l4">
+    <div class="input-field col s12">
         <select multiple class="validate" name="mentor[time][]" id="options">
             <option value="" disabled selected>Choose your option</option>
           <% if @nine_eleven_option %>

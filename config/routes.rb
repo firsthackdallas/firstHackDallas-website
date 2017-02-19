@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/contact' => 'contacts#index'
   get '/teams' => 'teams#index'
   post '/teams' => 'teams#create'
-  get '/users/new' => 'users#new'
+  get '/hackers' => 'users#new'
   get '/mobile-login' => 'sessions#mobile'
   post '/users' => 'users#create'
   post '/sessions' => 'sessions#create'
