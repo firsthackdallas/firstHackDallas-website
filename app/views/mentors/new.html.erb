@@ -47,40 +47,40 @@
         <input type="text" name="mentor[tech]" class="validate">
     </div>
     <div class="input-field col s12">
-        <select id="mentor_select" multiple class="validate" name="mentor[time][]" id="options">
-            <option value="" disabled selected>Choose your option</option>
-          <% if @nine_eleven_option %>
-            <option value="nine_eleven">9AM - 11AM</option>
-          <% else %>
-            <option value="nine_eleven" disabled selected>9AM - 11AM</option>
-          <% end %>
-          <% if @eleven_one_option %>
-            <option value="eleven_one">11AM - 1PM</option>
-         <% else %>
-            <option value="eleven_one" disabled selected>11AM - 1PM</option>
-          <% end %>
-          <% if @one_three_option %>
-            <option value="one_three">1PM - 3PM</option>
-          <% else %>
-            <option value="one_three" disabled selected>1PM - 3PM</option>
-          <% end %>
-          <% if @three_five_option %>
-             <option value="three_five">3PM - 5PM</option>
-          <% else %>
-             <option value="three_five" disabled selected>3PM - 5PM</option>
-          <% end %>
-          <% if @five_seven_option %>
-             <option value="five_seven">5PM - 7PM</option>
-          <% else %>
-             <option value="five_seven" disabled selected>5PM - 7PM</option>
-          <% end %>
-          <% if @seven_eight_option %>
-             <option value="seven_eight">7PM - 8PM</option>
-          <% else %>
-             <option value="seven_eight" disabled selected>7PM - 8PM</option>
-          <% end %>
-        </select>
-        <label for="mentor_time">Time Available to Mentor</label>
+      <select id="mentor_select" multiple class="validate" name="mentor[time][]" id="options">
+          <option value="" disabled selected>Choose your option</option>
+        <% if @nine_eleven_option %>
+          <option value="nine_eleven">9AM - 11AM</option>
+        <% else %>
+          <option value="nine_eleven" disabled selected>9AM - 11AM</option>
+        <% end %>
+        <% if @eleven_one_option %>
+          <option value="eleven_one">11AM - 1PM</option>
+       <% else %>
+          <option value="eleven_one" disabled selected>11AM - 1PM</option>
+        <% end %>
+        <% if @one_three_option %>
+          <option value="one_three">1PM - 3PM</option>
+        <% else %>
+          <option value="one_three" disabled selected>1PM - 3PM</option>
+        <% end %>
+        <% if @three_five_option %>
+           <option value="three_five">3PM - 5PM</option>
+        <% else %>
+           <option value="three_five" disabled selected>3PM - 5PM</option>
+        <% end %>
+        <% if @five_seven_option %>
+           <option value="five_seven">5PM - 7PM</option>
+        <% else %>
+           <option value="five_seven" disabled selected>5PM - 7PM</option>
+        <% end %>
+        <% if @seven_eight_option %>
+           <option value="seven_eight">7PM - 8PM</option>
+        <% else %>
+           <option value="seven_eight" disabled selected>7PM - 8PM</option>
+        <% end %>
+      </select>
+      <label for="mentor_time">Time Available to Mentor</label>
     </div>
     <div class="input-field col s12 m8">
       <button type="submit" class="waves-effect waves-light btn">Sign Up</button>
