@@ -18,7 +18,7 @@ class SponsorsController < ApplicationController
 				:first_name,
 				:last_name,
 				:email,
-				:sponsorship_tier,
+				:phone_number,
         :sponsor_type
 			)
 		end
