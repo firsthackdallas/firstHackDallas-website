@@ -26,4 +26,5 @@ $(document).on("turbolinks:load", function(){
     })
     return false;
   })
+  $('select').material_select();
 })

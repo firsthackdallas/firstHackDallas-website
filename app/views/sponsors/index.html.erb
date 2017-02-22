@@ -18,7 +18,7 @@
 </div>
 <div class="sponsor-form-body">
   <div class="row">
-    <form id="sponsor-form" class="col s12 m12 l6 offset-l3 section scrollspy" action="/sponsors" method="post" enctype="multipart/form-data">
+    <form id="sponsor-form" class="col s12 section scrollspy" action="/sponsors" method="post" enctype="multipart/form-data">
       <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
       <div class="input-field col s12 m6 l6">
         <input type="text" id="first_name" name="sponsor[first_name]" class="validate">
@@ -77,8 +77,8 @@
             <%end%>
         <%end%>
       </div>
-      <div class="input-field col s12 m8 offset-l2 center-align">
-        <button class="waves-effect waves-light btn" type="submit">Become a Sponsor</button>
+      <div class="input-field col s12">
+        <button class="waves-effect waves-light btn" type="submit">Become a FHD Contributor</button>
       </div>
     </form>
   </div>

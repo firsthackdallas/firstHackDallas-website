@@ -1,4 +1,13 @@
-<h4>Register to beomce a First Hack Dallas Mentor</h4>
+<div class="row">
+  <div class="col s12">
+    <h4>Mentors</h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12">
+    <p class="flow-text">First Hack Dallas aims to provide a positive, unintimidating hack-a-thon environment for coding newbies.  As such, we provide Mentors, industry professionals who answer questions and help debug errors during the hack-a-thon.  If you would like to register as a Mentor, please, fill out the form below stating what tech you are familiar with and select a time-slot you believe you will be available.  We aim to have multiple mentors available for each time-slot.  Thank you in advance for your commitment to us, and to the DFW tech community.</p>
+  </div>
+</div>
 
 <!-- Success msg once mentor has successfully signed up for a time -->
 <% if flash[:success] %>
@@ -38,7 +47,7 @@
         <input type="text" name="mentor[tech]" class="validate">
     </div>
     <div class="input-field col s12">
-        <select multiple class="validate" name="mentor[time][]" id="options">
+        <select id="mentor_select" multiple class="validate" name="mentor[time][]" id="options">
             <option value="" disabled selected>Choose your option</option>
           <% if @nine_eleven_option %>
             <option value="nine_eleven">9AM - 11AM</option>
